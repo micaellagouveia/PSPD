@@ -5,7 +5,7 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #define PORT 8080
-#define MAX 10
+#define MAX 500000
 int main(int argc, char const* argv[])
 {
     int server_fd, new_socket, valread;
@@ -15,7 +15,7 @@ int main(int argc, char const* argv[])
     char buffer[1024] = { 0 };
     float element = 0.0;
     float vetor[MAX];
-    char* hello = "Hello from server";
+    
  
     // Creating socket file descriptor
     if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
@@ -46,17 +46,37 @@ int main(int argc, char const* argv[])
         exit(EXIT_FAILURE);
     }
 
-    for(int i=0; i<MAX; i++){
+    for(int i = 0; i < MAX; i++) {
         valread = read(new_socket, &element, sizeof(float));
         vetor[i] = element;
-        printf("[SERVER] Recebido: %.2f\n", vetor[i]);
+        printf("[Server] Recebido: %.2f\n", vetor[i]);
     }
-    send(new_socket, hello, strlen(hello), 0);
-    printf("Hello message sent\n");
+
+    // Greater than Less than
+    float maior = 0;
+    float menor = 0;
+
+    for(int i = 0; i < MAX; i++) {
+        if (i == 0) {
+        maior = vetor[i];
+        menor = vetor[i];
+        }
+        if (vetor[i] > maior) {
+        maior = vetor[i];
+        }
+        if (vetor[i] < menor) {
+        menor = vetor[i];
+        }
+    }
+
+    // printf("[SERVER] MAIOR: %.2f e MENOR: %.2f\n", maior, menor);
+    sprintf(buffer, "[Server] MAIOR: %.2f e MENOR: %.2f\n", maior, menor);
+
+    send(new_socket, buffer, strlen(buffer), 0);
    
-  // closing the connected socket
+    // closing the connected socket
     close(new_socket);
-  // closing the listening socket
+    // closing the listening socket
     shutdown(server_fd, SHUT_RDWR);
     return 0;
 }

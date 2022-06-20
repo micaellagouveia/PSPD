@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <math.h>
 #define PORT 8080
-#define MAX 10
+#define MAX 500000
 
 float f_aleat() {
     float random = rand()%MAX + 1;
@@ -39,18 +39,18 @@ int main(int argc, char const* argv[])
         return -1;
     }
 
-    // Gerar vetor
+    // Generate vetor
     float vetor[MAX];
 
     for(int i = 0; i < MAX; i++){
         vetor[i] = f_aleat();
         float tmp = vetor[i];
-        printf("NÚMERO: %.2f\n", tmp);
+        //printf("NÚMERO: %.2f\n", tmp);
         vetor[i] = sqrt(tmp);
-        printf("NÚMERO COM RAIX: %.2f\n", vetor[i]);
+        //printf("NÚMERO COM RAIX: %.2f\n", vetor[i]);
         
         send(sock, &vetor[i], sizeof(float), 0);
-        printf("[Client]: Número: %.2f - ENVIADO\n", vetor[i]);
+        printf("[Client] Enviado: %.2f\n", vetor[i]);
     }
 
 
