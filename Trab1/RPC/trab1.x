@@ -5,7 +5,6 @@ struct operandos {
     int i;
 };
 
-
 program PROG {
     version VERSAO {
         float greater(operandos) = 1;
