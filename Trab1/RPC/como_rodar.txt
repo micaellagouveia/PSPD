@@ -1,0 +1,4 @@
+Na pasta /RPC rodar
+1. make
+2. ./trab1_server
+2. ./trab1_client
