@@ -1,0 +1,20 @@
+{
+  "name": "rabbitmq",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+
+  "scripts": {
+    "helloP": "node helloProducer.js",
+    "helloC": "node helloConsumer.js",
+    "queueP": "node queueProducer.js",
+    "queueC": "node queueConsumer.js",
+    "exchangeP": "node exchangeProducer.js",
+    "exchangeC": "node exchangeConsumer.js"
+  },
+
+  "dependencies": {
+    "amqplib": "^0.10.0"
+  }
+
+}
