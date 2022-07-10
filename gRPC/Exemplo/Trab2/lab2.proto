@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package lab2;
+
+service Lab2 {
+    // Retorna menor e maior valores de um array de 500 mil floats
+
+    rpc LessGreaterNumber(Array) returns (Response) {}
+
+}
+
+    message Array {
+        repeated int32 value = 1;
+    }
+
+    message Response {
+        string reponse = 1;
+    }
