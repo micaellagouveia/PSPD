@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  hadoop:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: local-hadoop:latest
+
+    command: ["bin/hadoop", "jar", "wc.jar", "WordCount", "io/input", "io/output"]
+    # ports:
+    #   - 5555:5000
+    volumes:
+      - ./src/WordCount.java:/usr/local/hadoop/WordCount.java
+      - ./src/io:/usr/local/hadoop/io
+    # env_file:
+    #   - ./env/.env
+
