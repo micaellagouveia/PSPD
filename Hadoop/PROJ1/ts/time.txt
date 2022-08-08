@@ -1,0 +1,8 @@
+Char Counter time: 
+0:03.04
+Counter RS time: 
+0:02.95
+Total Words Counter time: 
+0:04.95
+Word Counter time: 
+0:05.93

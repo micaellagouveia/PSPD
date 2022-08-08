@@ -1,0 +1,8 @@
+Char Counter time: 
+ 5.03189492225647 seconds
+Counter RS time: 
+ 5.066721439361572 seconds
+Total Words Counter time: 
+ 4.621675252914429 seconds
+Word Counter time: 
+ 4.943443298339844 seconds

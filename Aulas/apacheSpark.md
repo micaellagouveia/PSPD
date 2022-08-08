@@ -31,3 +31,8 @@ Feito em memória para otimizar e acelerar as cargas de trabalho. Ele utiliza o 
 API inspirada no Pandas
 
 
+
+
+
+# Apache Spark (Slides Prof)
+Processamento em Batch -> exeução única de um job feita em um aglomerado de dados sem ação direta do usuário. Computação em nuvem

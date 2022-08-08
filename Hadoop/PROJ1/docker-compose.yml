@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  hadoop:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: local-hadoop:latest
+
+    command: ["./command.sh"]
+
+    #command: [
+    #  "bin/hadoop", "jar", "cc.jar", "CharCount", "io/input", "io/output1",
+    #  "&&", "bin/hadoop", "jar", "crs.jar", "CountRS", "io/input", "io/output2",
+    #  "&&", "bin/hadoop", "jar", "tw.jar", "TotalWords", "io/input", "io/output3",
+    #  "&&", "bin/hadoop", "jar", "wc.jar", "WordCount", "io/input", "io/output4",]
+    # ports:
+    #   - 5555:5000
+    volumes:
+      - ./command.sh:/usr/local/hadoop/command.sh
+      - ./ts:/usr/local/hadoop/ts
+      
+      # - ./src/CharCount/mapper.py:/usr/local/hadoop/CharCount/mapper.py
+      # - ./src/reducer.py:/usr/local/hadoop/reducer.py
+      # - ./src/time.txt:/usr/local/hadoop/time.txt
+
+      # - ./src/CharCount.java:/usr/local/hadoop/CharCount.java
+      # - ./src/CountRS.java:/usr/local/hadoop/CountRS.java
+      # - ./src/TotalWords.java:/usr/local/hadoop/TotalWords.java
+      # - ./src/WordCount.java:/usr/local/hadoop/WordCount.java
+      - ./src/io:/usr/local/hadoop/io
+    # env_file:
+    #   - ./env/.env
+ 
+

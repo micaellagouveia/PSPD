@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  spark:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: local-spark:latest
+    # environment:
+    #   - SPARK_MASTER_HOST=0.0.0.0
+    #   - SPARK_DRIVER_BIND_ADDRESS=0.0.0.0
+
+    # command: ["./sbin/start-master.sh"]
+
+    volumes:
+      - ./src/io:/opt/spark/io
+      - ./ts:/opt/spark/ts
+
+    ports:
+      - 8080:8080
+      - 7077:7077
